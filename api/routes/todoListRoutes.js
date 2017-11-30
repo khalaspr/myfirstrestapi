@@ -10,6 +10,8 @@ module.exports = function(app) {
     .get(todoList.list_all_tasks)
     .post(todoList.create_a_task);
 
+    app.route('/login')
+    .post(user.login_a_user)
 
   app.route('/tasks/:taskId')
     .get(todoList.read_a_task)

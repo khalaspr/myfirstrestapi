@@ -14,6 +14,20 @@ exports.list_all_users = function(req, res) {
 
 
 
+exports.login_a_user = function(req, res) {
+    var new_user = new User(req.body);
+    User.findOne({email:new_user.email,password:new_user.password},function(err,task){
+          if (err)
+        res.send(err);
+      res.json(task);
+    });
+    
+    // new_user.findOne(function(err, task) {
+    //   if (err)
+    //     res.send(err);
+    //   res.json(task);
+    // });
+  };
 
 exports.create_a_user = function(req, res) {
   var new_user = new User(req.body);
